@@ -3,7 +3,7 @@
     <v-container grid-list-md text-xs-center>
       <v-layout class="mt-5" align-center justify-center>
         <v-flex>
-          <h1>情书</h1>
+          <div class="display-2">Love Letter</div>
         </v-flex>
       </v-layout>
 

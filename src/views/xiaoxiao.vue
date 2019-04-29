@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <audio id="ado" :src=" require('../assets/A Winter Story.mp3')" type="audio/mpeg" ref="ado"></audio>
+    <!-- <audio id="ado" :src=" require('../assets/A Winter Story.mp3')" type="audio/mpeg" ref="ado"></audio> -->
 
     <v-flex sm8>
       <v-card>
@@ -68,7 +68,7 @@
           <Dialog v-if="renderList[21]" :dialog="{ position:'left',text:'晚霞好好看啊' }"/>
           <Dialog v-if="renderList[22]" :dialog="{ position:'left',text:'你站到边边去，我给你拍个剪影' }"/>
           <Dialog v-if="renderList[23]" :dialog="{ position:'left',text:'最美侧颜' }"/>
-          <Narratage v-if="renderList[24]" :narratage="{text:'8:19 pm Last Picture' }"/>
+          <Narratage v-if="renderList[24]" :narratage="{text:'8:19 pm' }"/>
           <Narratage v-if="renderList[25]" :narratage="{image:'DSC_0342_1.jpg' }"/>
           <Dialog v-if="renderList[26]" :dialog="{ position:'right',text:'我们走吧，好冷啊' }"/>
           <Dialog v-if="renderList[27]" :dialog="{ position:'left',text:'老姐，能再陪我一会儿吗...' }"/>
@@ -76,18 +76,19 @@
           <Dialog v-if="renderList[29]" :dialog="{ position:'left',text:'请当我女朋友吧！' }"/>
           <Dialog v-if="renderList[30]" :dialog="{ position:'right',text:'干嘛吗' }"/>
           <Dialog v-if="renderList[31]" :dialog="{ position:'right',text:'为什么要说这个' }"/>
-          <Narratage v-if="renderList[32]" :narratage="{text:'往岸边的亭子' }"/>
+          <Narratage v-if="renderList[32]" :narratage="{text:'岸边的亭子' }"/>
           <Dialog v-if="renderList[33]" :dialog="{ position:'left',text:'（神智不清）快说好啊' }"/>
           <Dialog v-if="renderList[34]" :dialog="{ position:'right',text:'我们一定要在这儿说吗' }"/>
           <Dialog v-if="renderList[35]" :dialog="{ position:'right',text:'唉，傻死了' }"/>
-          <Narratage v-if="renderList[36]" :narratage="{text:'进入商场' }"/>
+          <Narratage v-if="renderList[36]" :narratage="{text:'商场' }"/>
           <Dialog v-if="renderList[37]" :dialog="{ position:'right',text:'你等一会儿我上个厕所' }"/>
           <Dialog v-if="renderList[38]" :dialog="{ position:'left',text:'（意识混乱）' }"/>
           <Narratage v-if="renderList[39]" :narratage="{text:'... ...' }"/>
           <Dialog v-if="renderList[40]" :dialog="{ position:'right',text:'或许我们可以试试~' }"/>
           <Dialog v-if="renderList[41]" :dialog="{ position:'left',text:'哇!' }"/>
           <Narratage v-if="egg[0]" :narratage="{text:'后记' }"/>
-          <Dialog  v-if="egg[1]" :dialog="{ position:'left',text:'照顾晓潇直到永远！' }"/>
+          <Dialog  v-if="egg[1]" :dialog="{ position:'left',text:'晓潇,真的超级喜欢你～' }"/>
+          <Dialog  v-if="egg[2]" :dialog="{ position:'left',text:'请让我照顾你一辈子！' }"/>
         </v-container>
         <transition name="fade">
           <v-btn v-if="expendShow" @click="expendDialog()" large block>
@@ -95,7 +96,7 @@
           </v-btn>
         </transition>
         <transition name="fade">
-          <v-btn color="primary" v-if="!expendShow&&nextBtnShow" @click="nextPage()" large block>Next Page</v-btn>
+          <v-btn color="primary" v-if="!expendShow&&nextBtnShow" @click="nextPage()" large block>米奇♂妙妙屋<v-icon x-large>chevron_right</v-icon></v-btn>
         </transition>
       </v-card>
     </v-flex>
@@ -116,8 +117,8 @@ export default {
       renderList: new Array(42).fill(false),
       renderIndex: 2,
       hover: false,
-      testNumber: 1,
-      //playIcon: this.$store.state.playIcon,
+
+
       bgm: this.$store.state.bgm,
       egg:[false,false],
       nextBtnShow:true
@@ -155,8 +156,11 @@ export default {
         this.$set(this.egg, 1, true);
       },6000)
       window.setTimeout(()=>{
-this.$router.push("/about");
-      },10000)
+        this.$set(this.egg, 2, true);
+      },9000)
+      window.setTimeout(()=>{
+this.$router.push("/time");
+      },13000)
       
     },
     mouseOverImage() {
